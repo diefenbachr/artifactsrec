@@ -7,18 +7,18 @@
 }
 
 :root {
-  --black: #0a0a0a;
-  --white: #f5f5f5;
-  --mid: #888;
-  --border: #222;
+  --bg: #f5f5f5;
+  --fg: #0a0a0a;
+  --mid: #666;
+  --border: #ddd;
   --serif: 'Libre Baskerville', 'Rockwell', Georgia, serif;
   --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 html {
   font-size: 16px;
-  background: var(--black);
-  color: var(--white);
+  background: var(--bg);
+  color: var(--fg);
 }
 
 body {
@@ -35,7 +35,7 @@ header {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: var(--black);
+  background: var(--bg);
   z-index: 10;
 }
 
@@ -54,7 +54,7 @@ nav {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--white);
+  color: var(--fg);
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -78,7 +78,7 @@ nav ul a {
 
 nav ul a:hover,
 nav ul a.active {
-  color: var(--white);
+  color: var(--fg);
 }
 
 /* ── Main ── */
@@ -190,16 +190,16 @@ main {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--white);
-  border: 1px solid var(--white);
+  color: var(--fg);
+  border: 1px solid var(--fg);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
 
 .event-link:hover:not(.disabled) {
-  background: var(--white);
-  color: var(--black);
+  background: var(--fg);
+  color: var(--bg);
 }
 
 .event-link.disabled {
@@ -251,7 +251,7 @@ main {
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  color: var(--white);
+  color: var(--fg);
 }
 
 .page-content p {
@@ -269,7 +269,7 @@ main {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--white);
+  color: var(--fg);
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
 }
@@ -306,7 +306,7 @@ footer a {
 }
 
 footer a:hover {
-  color: var(--white);
+  color: var(--fg);
 }
 
 /* ── Responsive ── */
