@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1920">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+      .cls-2 {
+        fill: #231f20;
+        font-family: Rockwell-Regular, Rockwell;
+        font-size: 297.85px;
+      }
+      .cls-3 {
+        letter-spacing: -.08em;
+      }
+      .cls-4 {
+        letter-spacing: -.05em;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(93.15 1045.62)"><tspan x="0" y="0">ARTI</tspan><tspan class="cls-3" x="734.87" y="0">F</tspan><tspan class="cls-4" x="894.41" y="0">A</tspan><tspan class="cls-1" x="1119.69" y="0">CTS</tspan></text>
+</svg>
