@@ -49,14 +49,21 @@ nav {
   justify-content: space-between;
 }
 
-.wordmark {
-  font-family: var(--serif);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--fg);
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
-  text-transform: uppercase;
+}
+
+.logo-stamp {
+  height: 36px;
+  width: auto;
+}
+
+.logo-text {
+  height: 18px;
+  width: auto;
 }
 
 nav ul {
@@ -138,21 +145,14 @@ main {
   align-items: start;
 }
 
-.poster-placeholder {
-  aspect-ratio: 2 / 3;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.poster-wrap {
   max-width: 340px;
 }
 
-.poster-placeholder span {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--border);
+.poster-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .event-details {
