@@ -104,7 +104,7 @@ main {
 .hero-top {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 3.5rem 2rem 0;
+  padding: 2.25rem 2rem 0;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -122,7 +122,7 @@ main {
 /* ── Ring Carousel ── */
 
 .ring-stage {
-  height: 540px;
+  height: 360px;
   max-width: 1280px;
   margin: 0 auto;
   cursor: grab;
@@ -185,7 +185,7 @@ main {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--mid);
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
 }
 
 /* ── Launch Event ── */
