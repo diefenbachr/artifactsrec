@@ -9,7 +9,8 @@
   // numbered placeholder. .jpg/.png/.webp = image, .mp4 = video.
   var MEDIA = {
     1: 'tiles/01.jpg',
-    2: 'tiles/02.mp4'
+    2: 'tiles/02.mp4',
+    3: 'tiles/03.jpg'
   };
 
   var stage = document.getElementById('ringStage');
