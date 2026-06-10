@@ -119,19 +119,17 @@ main {
   color: var(--mid);
 }
 
-/* ── 3D Ring ── */
+/* ── Ring Carousel ── */
 
 .ring-stage {
-  height: 420px;
-  margin: 1rem auto 0;
-  perspective: 1400px;
+  height: 540px;
+  max-width: 1280px;
+  margin: 0 auto;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
   touch-action: pan-y;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
 
 .ring-stage.dragging {
@@ -139,17 +137,20 @@ main {
 }
 
 .ring {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  transform-style: preserve-3d;
-  will-change: transform;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
 }
 
 .ring-tile {
   position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 230px;
+  height: 230px;
+  will-change: transform;
 }
 
 .tile-face {
@@ -391,6 +392,7 @@ footer a:hover {
   }
 
   .ring {
+    position: static;
     transform: none !important;
     width: auto;
     height: auto;

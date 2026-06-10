@@ -1,5 +1,6 @@
-/* 3D ring carousel — vanilla JS, no dependencies.
-   Tiles are placeholders; swap the inner content for <img>/<video> later. */
+/* Ring carousel — tiles stay flat and front-facing (no 3D skew).
+   Depth is simulated with scale + stacking order along an elliptical path.
+   Vanilla JS, no dependencies. Swap .tile-face content for <img>/<video> later. */
 
 (function () {
   var TILE_COUNT = 12;
@@ -8,7 +9,6 @@
   var ring = document.getElementById('ring');
   if (!stage || !ring) return;
 
-  // Build placeholder tiles
   for (var i = 0; i < TILE_COUNT; i++) {
     var tile = document.createElement('div');
     tile.className = 'ring-tile';
@@ -20,31 +20,45 @@
   }
 
   var tiles = ring.children;
-  var step = 360 / TILE_COUNT;
+  var step = (Math.PI * 2) / TILE_COUNT;
+
+  var radiusX = 420; // horizontal radius of the ellipse
+  var lift = 30;     // vertical rise of far tiles (subtle tilted-ring feel)
 
   function layout() {
-    // Radius derived from tile width so tiles never overlap
+    var w = stage.offsetWidth;
     var tileW = tiles[0].offsetWidth;
-    var radius = Math.round((tileW / 2) / Math.tan(Math.PI / TILE_COUNT)) + 40;
-    for (var i = 0; i < TILE_COUNT; i++) {
-      tiles[i].style.transform =
-        'rotateY(' + (i * step) + 'deg) translateZ(' + radius + 'px)';
-    }
+    radiusX = Math.min(w / 2 - tileW / 2 - 10, 480);
   }
 
-  var angle = 0;
+  var angle = 0;       // radians
   var velocity = 0;
   var dragging = false;
   var lastX = 0;
-  var idleSpin = 0.04; // degrees per frame when idle
+  var idleSpin = 0.0012; // radians per frame when idle
+
+  function render() {
+    for (var i = 0; i < TILE_COUNT; i++) {
+      var theta = angle + i * step;
+      var sin = Math.sin(theta);
+      var cos = Math.cos(theta);
+      // cos = 1 front and centre, cos = -1 furthest back
+      var x = sin * radiusX;
+      var y = -(1 - cos) * 0.5 * lift;
+      var scale = 0.55 + 0.45 * (cos + 1) * 0.5;
+      tiles[i].style.transform =
+        'translate(-50%, -50%) translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) scale(' + scale.toFixed(3) + ')';
+      tiles[i].style.zIndex = String(100 + Math.round(cos * 100));
+    }
+  }
 
   function frame() {
     if (!dragging) {
-      velocity *= 0.95; // friction
-      if (Math.abs(velocity) < 0.01) velocity = 0;
+      velocity *= 0.95;
+      if (Math.abs(velocity) < 0.00005) velocity = 0;
       angle += velocity + idleSpin;
     }
-    ring.style.transform = 'rotateY(' + angle + 'deg)';
+    render();
     requestAnimationFrame(frame);
   }
 
@@ -59,9 +73,9 @@
     if (!dragging) return;
     var dx = x - lastX;
     lastX = x;
-    angle += dx * 0.25;
-    velocity = dx * 0.25;
-    ring.style.transform = 'rotateY(' + angle + 'deg)';
+    var delta = dx * 0.004;
+    angle += delta;
+    velocity = delta;
   }
 
   function pointerUp() {
@@ -84,16 +98,14 @@
   }, { passive: true });
   stage.addEventListener('touchend', pointerUp);
 
-  // Horizontal wheel / trackpad swipe also spins the ring
   stage.addEventListener('wheel', function (e) {
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
       e.preventDefault();
-      angle -= e.deltaX * 0.15;
-      velocity = -e.deltaX * 0.05;
+      angle -= e.deltaX * 0.002;
+      velocity = -e.deltaX * 0.0005;
     }
   }, { passive: false });
 
-  // Respect reduced-motion preference: no idle spin
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     idleSpin = 0;
   }
