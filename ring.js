@@ -5,6 +5,13 @@
 (function () {
   var TILE_COUNT = 12;
 
+  // Media per position (1-based). Positions not listed keep the
+  // numbered placeholder. .jpg/.png/.webp = image, .mp4 = video.
+  var MEDIA = {
+    1: 'tiles/01.jpg',
+    2: 'tiles/02.mp4'
+  };
+
   var stage = document.getElementById('ringStage');
   var ring = document.getElementById('ring');
   if (!stage || !ring) return;
@@ -14,7 +21,25 @@
     tile.className = 'ring-tile';
     var inner = document.createElement('div');
     inner.className = 'tile-face';
-    inner.textContent = ('0' + (i + 1)).slice(-2);
+    var src = MEDIA[i + 1];
+    if (src && /\.mp4$/i.test(src)) {
+      var vid = document.createElement('video');
+      vid.src = src;
+      vid.muted = true;
+      vid.loop = true;
+      vid.autoplay = true;
+      vid.playsInline = true;
+      vid.setAttribute('playsinline', '');
+      inner.appendChild(vid);
+    } else if (src) {
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      img.draggable = false;
+      inner.appendChild(img);
+    } else {
+      inner.textContent = ('0' + (i + 1)).slice(-2);
+    }
     tile.appendChild(inner);
     ring.appendChild(tile);
   }
