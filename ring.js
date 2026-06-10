@@ -10,7 +10,10 @@
   var MEDIA = {
     1: 'tiles/01.jpg',
     2: 'tiles/02.mp4',
-    3: 'tiles/03.jpg'
+    3: 'tiles/03.jpg',
+    4: 'tiles/04.mp4',
+    5: 'tiles/05.mp4',
+    6: 'tiles/06.mp4'
   };
 
   var stage = document.getElementById('ringStage');
