@@ -13,7 +13,9 @@
     3: 'tiles/03.jpg',
     4: 'tiles/04.mp4',
     5: 'tiles/05.mp4',
-    6: 'tiles/06.mp4'
+    6: 'tiles/06.mp4',
+    7: 'tiles/07.mp4',
+    8: 'tiles/08.jpg'
   };
 
   var stage = document.getElementById('ringStage');
