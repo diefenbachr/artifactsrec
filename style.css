@@ -193,7 +193,7 @@ main {
 .launch-event {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 4rem 2rem 5rem;
+  padding: 3rem 2rem 4rem;
   width: 100%;
 }
 
@@ -222,7 +222,7 @@ main {
 }
 
 .poster-wrap {
-  max-width: 420px;
+  max-width: 320px;
 }
 
 .poster-img {
@@ -274,7 +274,12 @@ main {
   font-size: 0.9rem;
   color: var(--mid);
   line-height: 1.7;
-  max-width: 46ch;
+  max-width: 60ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .event-cta {
