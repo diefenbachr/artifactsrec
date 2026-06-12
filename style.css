@@ -36,7 +36,7 @@ header {
   position: sticky;
   top: 0;
   background: var(--bg);
-  z-index: 10;
+  z-index: 1000;
 }
 
 nav {
@@ -47,6 +47,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .logo {
@@ -86,6 +87,39 @@ nav ul a {
 nav ul a:hover,
 nav ul a.active {
   color: var(--fg);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.burger span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--fg);
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.burger.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 /* ── Main ── */
@@ -426,6 +460,38 @@ footer a:hover {
 /* ── Responsive ── */
 
 @media (max-width: 680px) {
+  .burger {
+    display: flex;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  nav ul.open {
+    max-height: 240px;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul a {
+    display: block;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
   .event-inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
