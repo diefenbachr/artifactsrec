@@ -282,6 +282,30 @@ main {
   opacity: 1;
 }
 
+/* Release block mirrors the event block, with the media on the right
+   so the two sections balance each other down the page. */
+.release-block {
+  border-top: 1px solid var(--border);
+}
+
+.event-inner-reverse {
+  grid-template-columns: 6fr 5fr;
+}
+
+.release-media {
+  max-width: 320px;
+  margin-left: auto;
+  width: 100%;
+}
+
+.release-media video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: var(--fg);
+}
+
 .event-details {
   display: flex;
   flex-direction: column;
@@ -509,13 +533,20 @@ footer a:hover {
     border-top: 1px solid var(--border);
   }
 
-  .event-inner {
+  .event-inner,
+  .event-inner-reverse {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
-  .poster-wrap {
+  .poster-wrap,
+  .release-media {
     max-width: 100%;
+  }
+
+  /* Keep the media above the text in both blocks when stacked */
+  .event-inner-reverse .release-media {
+    order: -1;
   }
 
   .event-cta {
