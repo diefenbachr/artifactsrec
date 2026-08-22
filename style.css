@@ -255,6 +255,12 @@ main {
   align-items: stretch;
 }
 
+/* Grid items default to min-width:auto, which lets wide content push the
+   column past its track and overflow the page. */
+.event-inner > * {
+  min-width: 0;
+}
+
 .poster-wrap {
   max-width: 320px;
   position: relative;
@@ -293,9 +299,14 @@ main {
 }
 
 .release-media {
-  max-width: 320px;
+  max-width: 260px;
   margin-left: auto;
   width: 100%;
+}
+
+/* No CTA in this block, so the last row shouldn't leave a trailing rule */
+.release-block .event-row:last-child {
+  border-bottom: none;
 }
 
 .release-media video {
@@ -539,9 +550,14 @@ footer a:hover {
     gap: 2.5rem;
   }
 
-  .poster-wrap,
-  .release-media {
+  .poster-wrap {
     max-width: 100%;
+  }
+
+  /* Square media goes full-bleed-tall at 100% width, so keep it capped */
+  .release-media {
+    max-width: 260px;
+    margin-left: 0;
   }
 
   /* Keep the media above the text in both blocks when stacked */
