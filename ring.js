@@ -3,7 +3,10 @@
    Vanilla JS, no dependencies. Swap .tile-face content for <img>/<video> later. */
 
 (function () {
-  var TILE_COUNT = 12;
+  // Temporary: 8 while tiles 09–12 are pending, so the ring reads as
+  // complete instead of showing numbered placeholders. Bump back to 12
+  // once the remaining media is added to MEDIA below.
+  var TILE_COUNT = 8;
 
   // Media per position (1-based). Positions not listed keep the
   // numbered placeholder. .jpg/.png/.webp = image, .mp4 = video.
