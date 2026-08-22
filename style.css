@@ -257,12 +257,29 @@ main {
 
 .poster-wrap {
   max-width: 320px;
+  position: relative;
 }
 
 .poster-img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* The alternate poster overlays the first, so the container keeps the
+   original poster's size; cover crops only the alternate to that box. */
+.poster-alt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.poster-alt.visible {
+  opacity: 1;
 }
 
 .event-details {
