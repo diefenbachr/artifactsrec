@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Design System — Artifacts Recordings</title>
+  <link rel="icon" type="image/svg+xml" href="artifacts-stamp.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Documentation chrome only — deliberately kept out of style.css so the
+       production stylesheet stays limited to what the live site actually uses. */
+    .ds-main { max-width: 1100px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+
+    .ds-lede {
+      padding: 4rem 0 2.5rem;
+      border-bottom: 1px solid var(--fg);
+      margin-bottom: 3.5rem;
+    }
+    .ds-lede h1 {
+      font-family: var(--sans);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .ds-lede p { font-size: 0.9rem; color: var(--mid); line-height: 1.7; max-width: 60ch; }
+
+    .ds-section { padding-bottom: 4.5rem; }
+    .ds-section > h2 {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg);
+      border-bottom: 1px solid var(--fg);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .ds-sub {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin: 2.5rem 0 1rem;
+    }
+    .ds-sub:first-of-type { margin-top: 0; }
+
+    /* Specimen rows: sample on the left, spec on the right */
+    .ds-row {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 2rem;
+      align-items: baseline;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .ds-row > * { min-width: 0; }
+    .ds-spec {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.7rem;
+      line-height: 1.7;
+      color: var(--mid);
+      word-break: break-word;
+    }
+    .ds-spec b { display: block; color: var(--fg); font-weight: 500; }
+
+    /* Colour swatches */
+    .ds-swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .ds-swatch-chip {
+      aspect-ratio: 3 / 2;
+      border: 1px solid var(--border);
+      margin-bottom: 0.75rem;
+    }
+    .ds-swatch p {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.7rem;
+      line-height: 1.7;
+      color: var(--mid);
+    }
+    .ds-swatch p b { display: block; color: var(--fg); font-weight: 500; }
+
+    .ds-demo { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
+
+    .ds-frame { border: 1px dashed var(--border); padding: 1.5rem; }
+
+    .ds-note {
+      font-size: 0.8rem;
+      color: var(--mid);
+      line-height: 1.7;
+      max-width: 60ch;
+      margin-top: 1rem;
+    }
+
+    .ds-tokens {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.72rem;
+      line-height: 2;
+      color: var(--mid);
+    }
+    .ds-tokens b { color: var(--fg); font-weight: 500; }
+
+    @media (max-width: 680px) {
+      .ds-main { padding: 0 1.25rem; }
+      .ds-row { grid-template-columns: 1fr; gap: 0.75rem; }
+      .ds-swatches { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="artifacts-stamp.svg" alt="" class="logo-stamp">
+        <img src="ARTIFACTStextwrapped.svg" alt="Artifacts Recordings" class="logo-text">
+      </a>
+      <ul id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="burger" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="ds-main">
+    <section class="ds-lede">
+      <h1>Design System</h1>
+      <p>Reference for Artifacts Recordings. This page is not linked from the site navigation and is marked <code>noindex</code> — it is reachable by URL only. Every sample below uses the live <code>style.css</code>, so what you see here is what the site renders.</p>
+    </section>
+
+    <!-- ── Colours ── -->
+    <section class="ds-section">
+      <h2>Colour</h2>
+      <div class="ds-swatches">
+        <div class="ds-swatch">
+          <div class="ds-swatch-chip" style="background:#f5f5f5"></div>
+          <p><b>Background</b>--bg<br>#f5f5f5</p>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-chip" style="background:#0a0a0a"></div>
+          <p><b>Foreground</b>--fg<br>#0a0a0a</p>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-chip" style="background:#666"></div>
+          <p><b>Secondary</b>--mid<br>#666666</p>
+        </div>
+        <div class="ds-swatch">
+          <div class="ds-swatch-chip" style="background:#ddd"></div>
+          <p><b>Rule / Border</b>--border<br>#dddddd</p>
+        </div>
+      </div>
+      <p class="ds-note">Strictly monochrome. <b>--fg</b> carries all primary text and solid fills, <b>--mid</b> all secondary and supporting text, and <b>--border</b> every hairline rule. Colour is never used to convey meaning on its own.</p>
+    </section>
+
+    <!-- ── Typography ── -->
+    <section class="ds-section">
+      <h2>Typography</h2>
+
+      <p class="ds-sub">Families</p>
+      <div class="ds-row">
+        <div style="font-family:var(--serif); font-size:1.75rem; font-weight:700; text-transform:uppercase;">Artifacts Recordings</div>
+        <div class="ds-spec"><b>--serif</b>Libre Baskerville<br>fallback: Rockwell, Georgia, serif<br>display / editorial headings</div>
+      </div>
+      <div class="ds-row">
+        <div style="font-family:var(--sans); font-size:1.75rem; font-weight:400;">Artifacts Recordings</div>
+        <div class="ds-spec"><b>--sans</b>Inter<br>fallback: Helvetica Neue, Helvetica, Arial<br>UI, body, labels</div>
+      </div>
+      <p class="ds-note">Rockwell and Helvetica Neue are the brand faces. Libre Baskerville and Inter are the closest web-available stand-ins and are what actually load; the real faces sit first in each fallback stack so they are used where installed.</p>
+
+      <p class="ds-sub">Scale</p>
+      <div class="ds-row">
+        <div><h1 class="ds-h1-sample" style="font-family:var(--serif); font-size:clamp(2.5rem,8vw,6rem); font-weight:700; text-transform:uppercase; letter-spacing:-0.02em; line-height:0.95;">About</h1></div>
+        <div class="ds-spec"><b>.page-hero h1</b>serif · 700 · uppercase<br>clamp(2.5rem, 8vw, 6rem)<br>tracking -0.02em · lh 0.95</div>
+      </div>
+      <div class="ds-row">
+        <div style="font-family:var(--sans); font-size:clamp(1.75rem,4vw,2.75rem); font-weight:500; letter-spacing:-0.01em;">Helio</div>
+        <div class="ds-spec"><b>.event-artist</b>sans · 500<br>clamp(1.75rem, 4vw, 2.75rem)<br>tracking -0.01em</div>
+      </div>
+      <div class="ds-row">
+        <div style="font-family:var(--sans); font-size:clamp(1.4rem,3vw,2rem); font-weight:400; letter-spacing:0.05em; text-transform:uppercase;">Kulturnatt</div>
+        <div class="ds-spec"><b>.event-details h2</b>sans · 400 · uppercase<br>clamp(1.4rem, 3vw, 2rem)<br>tracking 0.05em</div>
+      </div>
+      <div class="ds-row">
+        <div style="font-family:var(--serif); font-size:1rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase;">Section Heading</div>
+        <div class="ds-spec"><b>.privacy-content h2</b>serif · 700 · uppercase<br>1rem · tracking 0.05em</div>
+      </div>
+      <div class="ds-row">
+        <div style="font-size:1.1rem; line-height:1.7;">Artifacts Recordings is an independent music label launching in 2026.</div>
+        <div class="ds-spec"><b>.intro</b>sans · 300 · --fg<br>1.1rem · lh 1.7</div>
+      </div>
+      <div class="ds-row">
+        <div style="font-size:0.95rem; line-height:1.75; color:var(--mid);">Standard body copy. Used for running text on interior pages, set at a comfortable measure with generous leading.</div>
+        <div class="ds-spec"><b>.page-content p</b>sans · 300 · --mid<br>0.95rem · lh 1.75</div>
+      </div>
+      <div class="ds-row">
+        <div style="font-size:0.9rem; line-height:1.7; color:var(--mid); max-width:60ch;">Block description copy, capped at a 60-character measure and clamped to six lines with an ellipsis so it can never unbalance its column.</div>
+        <div class="ds-spec"><b>.event-desc</b>sans · 300 · --mid<br>0.9rem · lh 1.7<br>max 60ch · 6-line clamp</div>
+      </div>
+
+      <p class="ds-sub">Labels &amp; micro-type</p>
+      <div class="ds-row">
+        <div><span class="event-label">Launch Event</span></div>
+        <div class="ds-spec"><b>.event-label</b>0.75rem · uppercase<br>tracking 0.18em · --fg</div>
+      </div>
+      <div class="ds-row">
+        <div><span class="event-meta">Ryan Diefenbach &amp; Daniel Wave</span></div>
+        <div class="ds-spec"><b>.event-meta</b>0.7rem · uppercase<br>tracking 0.18em · --mid</div>
+      </div>
+      <div class="ds-row">
+        <div><span class="label">Est. 2026</span></div>
+        <div class="ds-spec"><b>.label / .tagline</b>0.75rem · uppercase<br>tracking 0.18em · --mid</div>
+      </div>
+      <div class="ds-row">
+        <div><span class="ring-hint" style="display:inline;">Drag to explore</span></div>
+        <div class="ds-spec"><b>.ring-hint</b>0.7rem · uppercase<br>tracking 0.18em · --mid</div>
+      </div>
+      <div class="ds-row">
+        <div><span class="footer-label">Artifacts Recordings &copy; 2026</span></div>
+        <div class="ds-spec"><b>.footer-label</b>0.75rem · uppercase<br>tracking 0.1em · --mid</div>
+      </div>
+    </section>
+
+    <!-- ── Buttons ── -->
+    <section class="ds-section">
+      <h2>Buttons</h2>
+      <div class="ds-demo">
+        <a href="#" class="event-link" onclick="return false;">Register on Facebook</a>
+        <span class="event-link disabled" aria-disabled="true">Coming Soon</span>
+      </div>
+      <div class="ds-row" style="margin-top:2rem;">
+        <div class="ds-spec" style="color:var(--mid);">Default — 1px <b style="display:inline">--fg</b> border, transparent fill. On hover it inverts: <b style="display:inline">--fg</b> background, <b style="display:inline">--bg</b> text, 0.2s transition.</div>
+        <div class="ds-spec"><b>.event-link</b>0.75rem · uppercase<br>tracking 0.12em<br>padding 0.75rem 1.5rem</div>
+      </div>
+      <div class="ds-row">
+        <div class="ds-spec" style="color:var(--mid);">Disabled — muted text and border, no hover, <code>pointer-events: none</code>. Use a <code>&lt;span&gt;</code> rather than an anchor when there is no destination yet.</div>
+        <div class="ds-spec"><b>.event-link.disabled</b>--mid text<br>--border border</div>
+      </div>
+      <p class="ds-note">There is one button in the system. Outbound links carry <code>target="_blank"</code> with <code>rel="noopener"</code>.</p>
+    </section>
+
+    <!-- ── Components ── -->
+    <section class="ds-section">
+      <h2>Components</h2>
+
+      <p class="ds-sub">Section header rule</p>
+      <div class="event-header">
+        <p class="event-label">Launch Event</p>
+        <p class="event-label">Smelt &mdash; 01</p>
+      </div>
+      <p class="ds-note"><b>.event-header</b> — opens every content block. Label left, qualifier right, separated by a 1px <b>--fg</b> rule. This is the strongest horizontal division in the system; all other rules use <b>--border</b>.</p>
+
+      <p class="ds-sub">Detail rows</p>
+      <div class="event-details" style="max-width:520px;">
+        <div class="event-row">
+          <p class="event-meta">11.09.2026</p>
+          <h2>Kulturnatt</h2>
+        </div>
+        <div class="event-row">
+          <p class="event-desc">Description copy sits in its own row, divided from its neighbours by a hairline rule.</p>
+        </div>
+        <div class="event-row event-cta">
+          <a href="#" class="event-link" onclick="return false;">Register on Facebook</a>
+        </div>
+      </div>
+      <p class="ds-note"><b>.event-row</b> — stacked rows divided by <b>--border</b>. The first row drops its top padding; <b>.event-cta</b> takes <code>margin-top:auto</code> so the call to action pins to the bottom of the column and aligns with the base of the adjacent media.</p>
+
+      <p class="ds-sub">Media frames</p>
+      <div class="ds-demo" style="align-items:flex-start;">
+        <div>
+          <div class="poster-wrap"><img src="Artifacts-Smelt-Poster-Web-v1.jpg" alt="" class="poster-img"></div>
+          <p class="ds-spec" style="margin-top:0.75rem;"><b>.poster-wrap</b>max 320px · natural ratio</p>
+        </div>
+        <div>
+          <div class="release-media" style="margin-left:0;"><video src="tiles/02.mp4" muted loop autoplay playsinline></video></div>
+          <p class="ds-spec" style="margin-top:0.75rem;"><b>.release-media</b>max 260px · 1:1 · cover</p>
+        </div>
+      </div>
+      <p class="ds-note">Posters keep their natural proportions and set their container's height. Square release media is fixed at 1:1 and cropped with <code>object-fit: cover</code>. Where two posters crossfade, the second is absolutely positioned over the first so the container never changes size.</p>
+
+      <p class="ds-sub">Carousel tile</p>
+      <div class="ds-demo">
+        <div style="width:150px; height:150px;"><div class="tile-face">01</div></div>
+        <div style="width:150px; height:150px;"><div class="tile-face"><img src="tiles/01.jpg" alt=""></div></div>
+      </div>
+      <p class="ds-note"><b>.tile-face</b> — square, <b>--fg</b> ground, media cropped to fill and overscaled 2% to hide subpixel seams while the ring scales it. Numbered fallback shows when a slot has no media. On desktop the ring is an elliptical path with depth faked by scale and stacking order, so tiles never rotate or skew; below 680px it flattens to a scroll-snapping strip.</p>
+
+      <p class="ds-sub">Navigation</p>
+      <div class="ds-frame ds-demo" style="gap:2.5rem;">
+        <ul style="list-style:none; display:flex; gap:2rem;">
+          <li><a href="#" class="active" onclick="return false;" style="font-family:var(--sans); font-size:0.8rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--fg); text-decoration:none;">Home</a></li>
+          <li><a href="#" onclick="return false;" style="font-family:var(--sans); font-size:0.8rem; font-weight:400; letter-spacing:0.1em; text-transform:uppercase; color:var(--mid); text-decoration:none;">About</a></li>
+        </ul>
+        <button class="burger" style="display:flex;" aria-label="Menu sample"><span></span><span></span><span></span></button>
+      </div>
+      <p class="ds-note">Links sit at <b>--mid</b> and resolve to <b>--fg</b> on hover or when active. Below 680px they collapse into the burger, which animates to a close cross and reveals a full-width dropdown.</p>
+    </section>
+
+    <!-- ── Layout ── -->
+    <section class="ds-section">
+      <h2>Layout &amp; Spacing</h2>
+      <p class="ds-tokens">
+        <b>Content width</b> &nbsp; max-width: 1100px, centred<br>
+        <b>Gutter</b> &nbsp; 2rem desktop · 1.25rem below 680px<br>
+        <b>Breakpoint</b> &nbsp; single breakpoint at 680px<br>
+        <b>Carousel stage</b> &nbsp; max-width 1280px · height 360px<br>
+        <b>Block grid</b> &nbsp; 5fr / 6fr media-left · 6fr / 5fr media-right · 4rem gap<br>
+        <b>Header height</b> &nbsp; 64px, sticky, z-index 1000<br>
+        <b>Base size</b> &nbsp; 16px · body weight 300
+      </p>
+      <p class="ds-note">Alternating blocks mirror their grid so media sides swap down the page. Grid children carry <code>min-width: 0</code> to stop content forcing a track wider than its share. Full-bleed rules span the viewport while their content stays within the 1100px measure.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-label">Artifacts Recordings &copy; 2026</p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/artifacts.recordings/" target="_blank" rel="noopener">Instagram</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+  <script src="nav.js"></script>
+</body>
+</html>
