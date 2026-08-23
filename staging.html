@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Staging — Artifacts Recordings</title>
+  <link rel="icon" type="image/svg+xml" href="artifacts-stamp.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Staging chrome only — never copy these rules into a live page.
+       Everything below the banner uses the real style.css, so content
+       staged here renders exactly as it will once moved across. */
+    .stg-banner {
+      position: sticky;
+      top: 64px;
+      z-index: 999;
+      background: var(--fg);
+      color: var(--bg);
+      padding: 0.6rem 2rem;
+    }
+    .stg-banner-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .stg-banner a { color: var(--bg); text-decoration: underline; }
+
+    .stg-intro {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 0;
+    }
+    .stg-intro p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--mid);
+      max-width: 62ch;
+    }
+    .stg-intro code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      color: var(--fg);
+    }
+
+    /* Marks the editable area. Purely a staging aid. */
+    .stg-slot {
+      border: 1px dashed var(--border);
+      margin: 2.5rem auto 0;
+      max-width: 1100px;
+    }
+    .stg-slot > .stg-slot-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding: 0.6rem 2rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .stg-slot .launch-event { padding-left: 2rem; padding-right: 2rem; }
+
+    .stg-empty {
+      padding: 4rem 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--border);
+    }
+
+    @media (max-width: 680px) {
+      .stg-banner { padding: 0.6rem 1.25rem; }
+      .stg-intro { padding: 2rem 1.25rem 0; }
+      .stg-slot { margin-left: 1.25rem; margin-right: 1.25rem; }
+      .stg-slot > .stg-slot-label { padding: 0.6rem 1.25rem; }
+      .stg-slot .launch-event { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <img src="artifacts-stamp.svg" alt="" class="logo-stamp">
+        <img src="ARTIFACTStextwrapped.svg" alt="Artifacts Recordings" class="logo-text">
+      </a>
+      <ul id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="burger" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="stg-banner">
+    <div class="stg-banner-inner">
+      <span>Staging &mdash; not live</span>
+      <span><a href="design-system.html">Design System</a></span>
+    </div>
+  </div>
+
+  <main>
+    <div class="stg-intro">
+      <p>Scratch space for building and reviewing content before it goes onto Home, About or anywhere else. Everything below the banner uses the live <code>style.css</code>, so a block staged here will look identical once moved across &mdash; copy the markup, paste it into the target page, delete it from here.</p>
+      <p style="margin-top:0.75rem;">This page is unlinked and marked <code>noindex</code>. Ready-to-use starter templates for each block type sit in HTML comments in this file&rsquo;s source; uncomment one to begin.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         STAGING AREA — work below this line.
+
+         Starter templates (uncomment and edit):
+
+         ── Content block, media LEFT ──────────────────────────────
+         <section class="launch-event">
+           <div class="event-header">
+             <p class="event-label">Overline</p>
+             <p class="event-label">Qualifier</p>
+           </div>
+           <div class="event-inner">
+             <div class="poster-wrap">
+               <img src="your-image.jpg" alt="" class="poster-img">
+             </div>
+             <div class="event-details">
+               <div class="event-row">
+                 <p class="event-meta">Meta line</p>
+                 <h2>Heading</h2>
+               </div>
+               <div class="event-row">
+                 <p class="event-desc">Description copy.</p>
+               </div>
+               <div class="event-row event-cta">
+                 <a href="#" class="event-link" target="_blank" rel="noopener">Button</a>
+               </div>
+             </div>
+           </div>
+         </section>
+
+         ── Content block, media RIGHT ─────────────────────────────
+         <section class="launch-event release-block">
+           <div class="event-header">
+             <p class="event-label">Overline</p>
+             <p class="event-label">Qualifier</p>
+           </div>
+           <div class="event-inner event-inner-reverse">
+             <div class="event-details">
+               <div class="event-row">
+                 <p class="event-meta">Meta line</p>
+                 <h2>Heading</h2>
+               </div>
+               <div class="event-row">
+                 <p class="event-desc">Description copy.</p>
+               </div>
+             </div>
+             <div class="release-media">
+               <video src="your-video.mp4" muted loop autoplay playsinline></video>
+             </div>
+           </div>
+         </section>
+
+         ── Interior page text section ─────────────────────────────
+         <section class="page-content">
+           <p class="intro">Lead paragraph.</p>
+           <p>Body paragraph.</p>
+         </section>
+
+         ══════════════════════════════════════════════════════════ -->
+
+    <div class="stg-slot">
+      <p class="stg-slot-label">Staging area</p>
+      <p class="stg-empty">Empty &mdash; paste content here</p>
+    </div>
+  </main>
+
+  <footer style="margin-top:4rem;">
+    <div class="footer-inner">
+      <p class="footer-label">Artifacts Recordings &copy; 2026</p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/artifacts.recordings/" target="_blank" rel="noopener">Instagram</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+  <script src="nav.js"></script>
+</body>
+</html>
