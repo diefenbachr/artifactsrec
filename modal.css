@@ -137,6 +137,36 @@
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
+/* Brand marks inherit currentColor so they invert with the button on hover */
+.modal-icon {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+}
+
+/* Typographic stand-in used where a brand SVG isn't available yet */
+.modal-icon-mono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  border: 1px solid currentColor;
+}
+
+/* Raster fallback for marks only supplied as an image */
+img.modal-icon {
+  object-fit: contain;
+}
+
+.modal-link-label {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
 .modal-link::after {
   content: "\2197";
   font-size: 0.85rem;
