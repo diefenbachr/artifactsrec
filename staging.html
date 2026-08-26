@@ -7,6 +7,7 @@
   <title>Staging — Artifacts Recordings</title>
   <link rel="icon" type="image/svg+xml" href="artifacts-stamp.svg">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -68,6 +69,26 @@
       border-bottom: 1px dashed var(--border);
     }
     .stg-slot .launch-event { padding-left: 2rem; padding-right: 2rem; }
+
+    /* .event-link is authored for anchors; reset UA button styling */
+    .stg-slot button.event-link {
+      background: none;
+      cursor: pointer;
+    }
+
+    .stg-hint {
+      font-size: 0.75rem;
+      line-height: 1.7;
+      color: var(--mid);
+      margin-top: 1rem;
+      max-width: 60ch;
+    }
+    .stg-hint kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+      border: 1px solid var(--border);
+      padding: 0.1em 0.4em;
+    }
 
     .stg-empty {
       padding: 4rem 2rem;
@@ -178,10 +199,40 @@
          ══════════════════════════════════════════════════════════ -->
 
     <div class="stg-slot">
+      <p class="stg-slot-label">Test &mdash; release links modal</p>
+      <div style="padding:2.5rem 2rem;">
+        <button class="event-link" data-modal-open="releaseModal">Listen &amp; Buy</button>
+        <p class="stg-hint">Opens from the button; closes on the &times;, a click outside the dialog, or <kbd>Esc</kbd>.</p>
+      </div>
+    </div>
+
+    <div class="stg-slot">
       <p class="stg-slot-label">Staging area</p>
       <p class="stg-empty">Empty &mdash; paste content here</p>
     </div>
   </main>
+
+  <!-- ── Release links modal ─────────────────────────────────────── -->
+  <div class="modal-backdrop" id="releaseModal" role="dialog" aria-modal="true" aria-labelledby="releaseModalTitle">
+    <div class="modal">
+      <div class="modal-art">
+        <img src="tiles/01.jpg" alt="">
+        <button class="modal-close" data-modal-close aria-label="Close dialog"></button>
+      </div>
+      <div class="modal-head">
+        <p class="modal-title" id="releaseModalTitle">Helio</p>
+        <p class="modal-sub">Ryan Diefenbach &amp; Daniel Wave</p>
+      </div>
+      <ul class="modal-links">
+        <li><a class="modal-link" href="#" target="_blank" rel="noopener">Subvert</a></li>
+        <li><a class="modal-link" href="#" target="_blank" rel="noopener">Beatport</a></li>
+        <li><a class="modal-link" href="#" target="_blank" rel="noopener">Spotify</a></li>
+        <li><a class="modal-link" href="#" target="_blank" rel="noopener">Bandcamp</a></li>
+        <li><a class="modal-link" href="#" target="_blank" rel="noopener">Apple Music</a></li>
+        <li><a class="modal-link" href="#" target="_blank" rel="noopener">Tidal</a></li>
+      </ul>
+    </div>
+  </div>
 
   <footer style="margin-top:4rem;">
     <div class="footer-inner">
@@ -193,5 +244,6 @@
     </div>
   </footer>
   <script src="nav.js"></script>
+  <script src="modal.js"></script>
 </body>
 </html>

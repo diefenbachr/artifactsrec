@@ -1,0 +1,175 @@
+/* Release links modal.
+   Loaded by staging.html only for now. To use on a live page, add:
+     <link rel="stylesheet" href="modal.css">
+     <script src="modal.js"></script> */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  background: var(--bg);
+  transform: translateY(12px) scale(0.985);
+  transition: transform 0.25s ease;
+}
+
+.modal-backdrop.open .modal {
+  transform: none;
+}
+
+/* ── Artwork ── */
+
+.modal-art {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--fg);
+  overflow: hidden;
+}
+
+.modal-art img,
+.modal-art video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal-close::before {
+  content: "\00d7";
+  font-family: var(--sans);
+  font-size: 1.25rem;
+  color: var(--fg);
+}
+
+.modal-close:hover {
+  background: var(--fg);
+}
+
+.modal-close:hover::before {
+  color: var(--bg);
+}
+
+/* ── Heading ── */
+
+.modal-head {
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-title {
+  font-family: var(--sans);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-bottom: 0.4rem;
+}
+
+.modal-sub {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ── Service links ── */
+
+.modal-links {
+  list-style: none;
+  padding: 1.25rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.modal-link::after {
+  content: "\2197";
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  color: var(--mid);
+  transition: color 0.2s;
+}
+
+.modal-link:hover,
+.modal-link:focus-visible {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: var(--bg);
+}
+
+.modal-link:hover::after,
+.modal-link:focus-visible::after {
+  color: var(--bg);
+}
+
+.modal :focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+
+@media (max-width: 680px) {
+  .modal-backdrop { padding: 1rem; }
+  .modal-head { padding: 1.25rem 1.25rem 1rem; }
+  .modal-links { padding: 1rem 1.25rem 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-backdrop,
+  .modal { transition: none; }
+  .modal { transform: none; }
+}
