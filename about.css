@@ -1,0 +1,92 @@
+/* Supporting blocks for the About page.
+   Loaded by staging.html for now. To use on a live page, add:
+     <link rel="stylesheet" href="about.css"> */
+
+/* Three-up column set for short supporting copy */
+.about-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.about-cols > * {
+  min-width: 0;
+}
+
+.about-col {
+  border-top: 1px solid var(--fg);
+  padding-top: 1rem;
+}
+
+.about-col h3 {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin-bottom: 0.75rem;
+}
+
+.about-col p {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--mid);
+}
+
+/* Simple label/value list — contact details, credits, enquiries */
+.about-list {
+  list-style: none;
+  padding-bottom: 4rem;
+}
+
+.about-list li {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.about-list dt,
+.about-list .about-key {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.about-list .about-val {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--fg);
+}
+
+.about-list a {
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.about-list a:hover {
+  border-color: var(--fg);
+}
+
+@media (max-width: 680px) {
+  .about-cols {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-list li {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
