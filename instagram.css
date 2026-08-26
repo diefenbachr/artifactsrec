@@ -1,0 +1,74 @@
+/* Instagram block — static grid, filled manually. No API or embed.
+   Loaded by staging.html for now. To use on a live page, add:
+     <link rel="stylesheet" href="instagram.css"> */
+
+/* The handle is long enough to collide with the label on narrow screens,
+   so this header wraps rather than letting the two labels touch. */
+.ig-header {
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+.ig-header-link {
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ig-header-link:hover {
+  color: var(--fg);
+}
+
+.ig-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.ig-tile {
+  display: block;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--fg);
+  text-decoration: none;
+}
+
+.ig-tile img,
+.ig-tile video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.25s ease;
+}
+
+.ig-tile:hover img,
+.ig-tile:hover video {
+  opacity: 0.75;
+}
+
+/* Empty slot marker — replace the span with an <img> when filling */
+.ig-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  color: var(--bg);
+}
+
+.ig-cta {
+  margin-top: 2rem;
+}
+
+@media (max-width: 680px) {
+  .ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
